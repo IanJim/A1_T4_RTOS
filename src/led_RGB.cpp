@@ -3,6 +3,9 @@
 #include "freertos/task.h"
 #include <Adafruit_NeoPixel.h>
 
+// programa completamente funcional para tira de led RGB WS2812B usando FreeRTOS
+// crea dos tareas: una para animar un cometa y otra para reportar por serial el estado cada segundo
+
 // --- Configuración de la Tira de LED ---
 const int LED_PIN = 4;        // Pin GPIO al que está conectada la línea de datos (puedes ajustarlo)
 const int NUM_LEDS = 60;      // Número total de LEDs en tu tira
