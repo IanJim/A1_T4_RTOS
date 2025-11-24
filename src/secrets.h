@@ -1,11 +1,11 @@
 // include/secrets.h (Ejemplo de archivo de credenciales)
-#define WIFI_SSID   "Tu_Nombre_WiFi"
-#define WIFI_PASS   "Tu_Contrasena_WiFi"
+#define WIFI_SSID   "INFINITUM3EAD"
+#define WIFI_PASS   "eEHuZM3ApK"
 
 // Credenciales de Firebase:
-#define FIREBASE_HOST "tu-proyecto-id.firebaseio.com" // ¡NO olvides el .firebaseio.com!
-#define FIREBASE_AUTH "Tu_Clave_Secreta_de_Base_de_Datos" // (Legacy Database Secret) o TOKEN
-#define FIREBASE_API_KEY "TU_API_KEY_DE_FIREBASE" // <--- ¡Añade esta clave!
+#define FIREBASE_HOST "https://led-rgb-rainbow-default-rtdb.firebaseio.com/" // ¡NO olvides el .firebaseio.com!
+#define FIREBASE_AUTH "h9dXMnjiyTpoFhzUjvBZfalDvduPes3AzoDSycvO" // (Legacy Database Secret) o TOKEN
+#define FIREBASE_API_KEY "AIzaSyCy2gWgy_AwUqDqBadUrDIDPFPBFmJjxM0" // <--- ¡Añade esta clave! 
 
 
 // NOTA: Para proyectos modernos, se usan Tokens JWT o la API Key.

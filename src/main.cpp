@@ -9,7 +9,7 @@ FirebaseAuth auth;
 FirebaseConfig config;
 
 // La URL de la base de datos donde leeremos el comando:
-const char *FIREBASE_COMMAND_PATH = "/control/comando";
+const char *FIREBASE_COMMAND_PATH = "control/comando";
 
 void setup()
 {
@@ -20,12 +20,13 @@ void setup()
   // rgb_setup();
   //  aqui se inicia la practica de firebase con led RGB
   Serial.begin(115200);
+  Serial.println("=== INICIO SETUP ===");
 
   // 1. Inicialización de la animación (LEDs y Pines)
   animacion_Setup();
 
   // aqui se comento por mientras funciona en modo prototipo
-/*
+
   // 2. Conexión Wi-Fi
   Serial.print("Conectando a WiFi...");
   WiFi.begin(WIFI_SSID, WIFI_PASS);
@@ -38,26 +39,35 @@ void setup()
   Serial.print("IP: ");
   Serial.println(WiFi.localIP());
 
+  auth.user.email = "prueba@gmail.com";
+  auth.user.password = "123456";
+
   // 3. Configuración y Conexión a Firebase
   config.database_url = FIREBASE_HOST;
   config.api_key = FIREBASE_API_KEY; // <-- Usa la API Key
 
-  // 4. AUTENTICACIÓN: Usamos el método de Token/UID (funciona sin el "database_secret")
-  // Esto le da una identidad a tu ESP32.
-  auth.token.uid = "MySecretAuth"; // Puedes usar un string cualquiera
-  // auth.token.database_secret = FIREBASE_AUTH;
-  // config.signer.tokens.database_secret = FIREBASE_AUTH;
+  config.cert.file = "";
+  config.cert.data = nullptr;
 
   // 5. CONEXIÓN INICIAL
   Firebase.begin(&config, &auth);
 
   // 6. Reconexión: Asegura que si se cae, se levante
   Firebase.reconnectWiFi(true); // Reconexión automática
-  */
 }
+unsigned long lastPrint = 0;
 
 void loop()
 {
+  //Serial.println("Loop vivo");
+  delay(10);
+  // delay(500);
+  //  Imprimir cada 500 ms sin bloquear
+  /*if (millis() - lastPrint > 500) {
+    Serial.println("Loop vivo");
+    lastPrint = millis();
+  }*/
+
   // practicaLoop();
   // segundo_loop();
   // free_loop();
@@ -71,6 +81,7 @@ void loop()
   {
     firebase_check_command();
   }
+  
 
   // 2. Ejecutar la animación actual
   animacion_Loop();

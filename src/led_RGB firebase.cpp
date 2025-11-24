@@ -61,10 +61,20 @@ void animacion_Loop() {
     // FastLED.show(); // Mostrar los cambios si usas FastLED
 }
 
+/*void resetAnimationState() {
+    current_pos = 0;
+    previous_blink_millis = 0;
+    blink_state = false;
+    FastLED.clear();
+    FastLED.show();
+}
+    */
+
+
 // Función que lee el comando de la nube y actualiza el estado (toggle)
 void firebase_check_command() {
     // La ruta debe coincidir con la de main.cpp: /control/comando
-    if (Firebase.getString(firebaseData, "/control/comando")) {
+    if (Firebase.getString(firebaseData, "control/comando")) {
         
         String receivedCommand = firebaseData.stringData();
         
@@ -97,6 +107,8 @@ void firebase_check_command() {
             // Si recibe algo que no es un comando válido, vuelve al estado por defecto
             currentMode = MODE_RGB_DEFAULT;
         }
+
+        //resetAnimationState(); // Reinicia el estado de la animación
 
         // 4. Actualizar el comando anterior
         if (currentMode != MODE_RGB_DEFAULT) {

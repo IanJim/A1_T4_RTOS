@@ -5,8 +5,6 @@
 #include <Arduino.h>
 #include <FirebaseESP32.h>
 
-extern FirebaseData firebaseData; // <-- Agrega 'extern' aquí
-
 // Declaración de las funciones para que 'main.cpp' las reconozca
 void practicaSetup();
 void practicaLoop();
@@ -34,6 +32,10 @@ enum AnimationMode {
     MODE_R_DERECHA,   // R
     MODE_S_ALTO       // S
 };
+
+
+extern FirebaseData firebaseData; 
+extern AnimationMode currentMode;
 
 // Declaración de las funciones de inicialización y bucle principal
 void animacion_Setup();
