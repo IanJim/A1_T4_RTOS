@@ -1,0 +1,167 @@
+<mxfile host="app.diagrams.net" modified="2025-11-21T21:56:43.900Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="m7mX_wYc_v-2oXqV0u3y" version="25.2.2" type="embed">
+  <diagram id="u8T5vR6w4yGv_1-e-z1" name="Animacion_FreeRTOS">
+    <mxGraphModel dx="1297" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="4" value="SETUP (main)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="380" y="30" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="Serial.begin(115200)&lt;br&gt;strip.begin()&lt;br&gt;strip.show()" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="355" y="110" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="Crear Tarea: ledAnimationTask (Prioridad 1)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="150" y="230" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="Crear Tarea: serialReportTask (Prioridad 1)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="540" y="230" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="LOOP&lt;br&gt;(vTaskDelay(5000))" style="shape=process;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="355" y="230" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="for (;;) {&lt;br&gt;  Bucle Infinito RTOS&lt;br&gt;}" style="shape=process;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="170" y="320" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="for (;;) {&lt;br&gt;  Bucle Infinito RTOS&lt;br&gt;}" style="shape=process;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="560" y="320" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="Reinicia y Mueve la Posición del Cometa (head)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="135" y="400" width="210" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="strip.setPixelColor(head, color) &lt;br&gt;Dibuja la Cabeza Azul" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="135" y="470" width="210" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="Dibuja la Cola (4 LEDs en degradado)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="135" y="550" width="210" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="strip.show() &lt;br&gt;(Actualiza la Tira de LED)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="135" y="620" width="210" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" value="Imprime Uptime: %lu segundos" style="shape=process;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="540" y="400" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" value="vTaskDelay(pdMS_TO_TICKS(1000)) &lt;br&gt;(Duerme por 1 segundo)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="540" y="470" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="18" value="vTaskDelay(pdMS_TO_TICKS(30)) &lt;br&gt;(Duerme por 30 ms)" style="shape=process;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="135" y="700" width="210" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="19" value="Inicia la Concurrencia (Planificador)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="490" y="270" width="170" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="310" as="sourcePoint"/>
+            <mxPoint x="500" y="260" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="5" target="9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="220" as="sourcePoint"/>
+            <mxPoint x="430" y="270" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="220" as="sourcePoint"/>
+            <mxPoint x="240" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="5" target="8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="490" y="220" as="sourcePoint"/>
+            <mxPoint x="640" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="7" target="10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="280" as="sourcePoint"/>
+            <mxPoint x="240" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="10" target="12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="370" as="sourcePoint"/>
+            <mxPoint x="240" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="27" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="440" as="sourcePoint"/>
+            <mxPoint x="240" y="470" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="28" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="520" as="sourcePoint"/>
+            <mxPoint x="240" y="550" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="29" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="590" as="sourcePoint"/>
+            <mxPoint x="240" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="30" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="15" target="18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="670" as="sourcePoint"/>
+            <mxPoint x="240" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="31" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="18" target="10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="750" as="sourcePoint"/>
+            <mxPoint x="240" y="790" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="100" y="750"/>
+              <mxPoint x="100" y="345"/>
+              <mxPoint x="170" y="345"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="8" target="11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="280" as="sourcePoint"/>
+            <mxPoint x="640" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="33" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="11" target="16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="370" as="sourcePoint"/>
+            <mxPoint x="640" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="34" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="16" target="17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="440" as="sourcePoint"/>
+            <mxPoint x="640" y="470" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="35" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="17" target="11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="520" as="sourcePoint"/>
+            <mxPoint x="640" y="560" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="760" y="520"/>
+              <mxPoint x="760" y="345"/>
+              <mxPoint x="700" y="345"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36" value="PLANIFICADOR&lt;br&gt;(SCHEDULER)" style="shape=tape;whiteSpace=wrap;html=1;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="360" y="400" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="37" value="CONCURRENCIA" style="shape=cross;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="375" y="500" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="38" value="TAREA DE ANIMACIÓN&lt;br&gt;(Fast, 30ms cycle)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="170" y="190" width="160" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="39" value="TAREA DE REPORTE SERIAL&lt;br&gt;(Slow, 1000ms cycle)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="540" y="190" width="190" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
