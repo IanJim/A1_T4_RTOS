@@ -24,6 +24,8 @@ void setup()
   // 1. Inicialización de la animación (LEDs y Pines)
   animacion_Setup();
 
+  // aqui se comento por mientras funciona en modo prototipo
+/*
   // 2. Conexión Wi-Fi
   Serial.print("Conectando a WiFi...");
   WiFi.begin(WIFI_SSID, WIFI_PASS);
@@ -51,6 +53,7 @@ void setup()
 
   // 6. Reconexión: Asegura que si se cae, se levante
   Firebase.reconnectWiFi(true); // Reconexión automática
+  */
 }
 
 void loop()

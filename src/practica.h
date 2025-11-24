@@ -4,6 +4,7 @@
 #define PRACTICA_H
 #include <Arduino.h>
 #include <FirebaseESP32.h>
+
 extern FirebaseData firebaseData; // <-- Agrega 'extern' aquí
 
 // Declaración de las funciones para que 'main.cpp' las reconozca
